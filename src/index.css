@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ═══════════════════════════════════════════════════════════════
+   ICE-X: Light Antarctic Polar Sky Aesthetic
+   Subtle sky-blue tint applied to all whites and panels
+   ═══════════════════════════════════════════════════════════════ */
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: radial-gradient(circle at 50% 35%, #e8f4fc 0%, #d8ebf9 55%, #c8e1f5 100%);
+  color: #1e293b;
+}
+
+/* ── Light Polar Glass Panels (Soft Sky Blue Tinted) ────────── */
+@layer components {
+  .polar-panel {
+    background: rgba(238, 246, 254, 0.94);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(215, 235, 252, 0.95);
+    box-shadow: 0 12px 32px -4px rgba(12, 74, 110, 0.08),
+                0 4px 12px -2px rgba(12, 74, 110, 0.04);
+  }
+
+  .polar-card {
+    background: rgba(238, 246, 254, 0.72);
+    border: 1px solid rgba(195, 222, 245, 0.85);
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .polar-card:hover {
+    background: rgba(242, 249, 255, 0.95);
+    border-color: rgba(125, 211, 252, 0.9);
+    box-shadow: 0 4px 12px rgba(14, 165, 233, 0.08);
+  }
+
+  /* ── Polar Harmonious Badges (Darker Blues & Slate — No Red/Yellow) ── */
+  .badge-approved {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium;
+    background: #e0f2fe;
+    color: #0369a1;
+    border: 1px solid #bae6fd;
+  }
+
+  .badge-caution {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium;
+    background: #e2e8f0;
+    color: #334155;
+    border: 1px solid #cbd5e1;
+  }
+
+  .badge-blocked {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium;
+    background: #0f2942;
+    color: #f0f7fe;
+    border: 1px solid #1e3a8a;
+  }
+
+  .badge-info {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium;
+    background: #eef7fe;
+    color: #0369a1;
+    border: 1px solid #bae6fd;
+  }
+}
+
+/* ── Custom Scrollbar ────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(125, 211, 252, 0.4);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(14, 165, 233, 0.6);
+}
+
+/* ── 3D Canvas Background Container ─────────────────────────── */
+.canvas-hero-wrapper {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  cursor: grab;
+  transform: translateZ(0);
+}
+
+.canvas-hero-wrapper:active {
+  cursor: grabbing;
+}
